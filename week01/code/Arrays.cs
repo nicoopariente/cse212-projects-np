@@ -13,7 +13,20 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        //Steps to be taken
+        //Declare the double array with the same lenght of the length value
+        //start a for loop where i variable will start from 0 and will end when it is less than the length variable
+        //Each of the loops will save the result in the idex i of the double array, calculating i plus one (as we want to start from 1), times the number variable 
+        //Return the array
+
+        double[] result = new double[length];
+
+        for (int i = 0; i < length; i++)
+        {
+            result[i] = (i + 1) * number;
+        }
+
+        return result; // replace this return statement with your own
     }
 
     /// <summary>
@@ -29,5 +42,22 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+
+        // We can extract the values that will be rotated using GetRange method and saving those into a new list
+        //The Get Range will have the index parameter as the number of items in the data list mines the amount variable value, and then the count parameter will be the amount value
+        //We proceed to eliminate those values from the original data List with the RemoveRange method, having the same parameters as the GetRange method we used before
+        //Then, we can use the InsertRange method to insert the new rotated list into the beginning of the data list using 0 as the index
+
+        List<int> rotated = new();
+
+        rotated = data.GetRange(data.Count - amount, amount);
+
+        data.RemoveRange(data.Count - amount, amount);
+
+        data.InsertRange(0,rotated);
+
+
+
     }
 }
